@@ -1,0 +1,48 @@
+.qna-list {
+  max-width: 800px !important;
+}
+
+.qna-item {
+  border-bottom: 1px solid var(--soft-ivory);
+  transition: all 0.3s ease;
+}
+
+.qna-header {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--dark-brown);
+}
+
+.qna-header .icon {
+  font-size: 1.2rem;
+  color: var(--accent-beige);
+}
+
+.qna-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--pale-ivory);
+  border-radius: 15px;
+}
+
+.qna-item.active .qna-body {
+  max-height: 200px;
+  margin-bottom: 20px;
+}
+
+.qna-body p {
+  padding: 20px 25px;
+  font-size: 0.95rem;
+  color: var(--warm-grey);
+  line-height: 1.7;
+}
+
+.qna-item:hover .qna-header {
+  color: var(--accent-beige);
+}

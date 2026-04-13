@@ -1,0 +1,153 @@
+:root {
+  --pale-ivory: #FDFCF0;
+  --soft-ivory: #F9F7F2;
+  --pure-white: #FFFFFF;
+  --dark-brown: #4A443D;
+  --warm-grey: #8A817C;
+  --accent-beige: #C8B9A6;
+  --soft-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--dark-brown);
+  background-color: var(--pure-white);
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  padding: 100px 5%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography styles */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--warm-grey);
+  margin-bottom: 4rem;
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Card Styling */
+.card {
+  background: var(--pure-white);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--soft-shadow);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--dark-brown);
+  color: white;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--accent-beige);
+  color: var(--dark-brown);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--dark-brown);
+  color: var(--dark-brown);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+.product-card:hover {
+  background-color: var(--pale-ivory);
+  transform: translateY(-5px);
+}
+
+.news-image-hover:hover {
+  transform: scale(1.05);
+}
+
+.mula-highlight {
+  display: inline-block;
+  background-color: var(--accent-beige);
+  color: white;
+  padding: 1px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95em;
+  margin: 0 3px;
+  vertical-align: middle;
+}
