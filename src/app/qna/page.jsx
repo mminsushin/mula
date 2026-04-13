@@ -72,7 +72,7 @@ export default function QnAPage() {
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(74, 68, 61, 0.45)', zIndex: 1 }}></div>
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
           <h1 className="serif fade-in" style={{ fontSize: '3.5rem', marginBottom: '1rem', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-            무엇을 도와드릴까요?
+            자주 묻는 질문
           </h1>
           <p className="fade-in" style={{ fontSize: '1.15rem', opacity: 0.9, textShadow: '0 1px 5px rgba(0,0,0,0.5)' }}>
             세탁 방법부터 사이즈 가이드까지, 뮤라에 대한 모든 궁금증을 빠르게 해결하세요.

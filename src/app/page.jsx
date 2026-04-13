@@ -17,12 +17,12 @@ export default function HomePage() {
   ];
 
   const products = [
-    { name: '오리지널 에코 (Eco)', desc: '사계절 부드러운 100% 순면 방수패드', img: '/assets/832f472577ff1674.jpg' },
-    { name: '쿨 (Cool) 라인', desc: '태열 방지, 시원한 특수 냉감 소재', img: '/assets/220_02_20241201.webp' },
-    { name: '에어 와플 (Waffle)', desc: '닿는 면적 최소화, 극대화된 쾌적함', img: '/assets/d31bd7241e8ff98d.jpg' },
-    { name: '라이트 거즈 (Gauze)', desc: '우수한 통기성과 빠른 수분 흡수력', img: '/assets/221_04_20241201.webp' },
-    { name: '미니 (Mini) 패드', desc: '외출 및 기저귀 교환에 최적화된 휴대성', img: '/assets/d288f3325967e8b3.jpg' },
-    { name: '패밀리 (Family)', desc: '부모님과 함께 쓰는 초대형 안심 사이즈', img: '/assets/B1_00943-1.jpg' }
+    { name: '에코 쿨방수요', desc: '시원하고 끈적임 없는 여름용 방수패드', img: '/assets/04cc8f5e45239c1d.jpg' },
+    { name: '에어 와플 방수요', desc: '조용하고 통기성 좋은 프리미엄 방수요', img: '/assets/2d82f0c8dc1ce0e9.jpg' },
+    { name: '헤링본 브룩그린 방수요', desc: '멀티레이어 구조, 쾌적한 순면 방수패드', img: '/assets/3677ec40b72275d1.jpg' },
+    { name: '뮤라x아메크 쿨 투웨이 이불', desc: '양면 기능, 사계절 맞춤 투웨이 이불', img: '/assets/22f2b2e7cbecb43d.jpg' },
+    { name: '레이스 거즈 블랭킷 300g', desc: '가볍고 휴대성 좋은 순면 거즈 블랭킷', img: '/assets/47f38c45fbea4c79.jpg' },
+    { name: '인견플러스 이불 (민트/베이지/그레이)', desc: '흡습·냉감 기능, 여름용 RF 이불', img: '/assets/452a36197f48a2ac.jpg' }
   ];
 
   return (
@@ -62,10 +62,10 @@ export default function HomePage() {
         
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 5%', maxWidth: '1200px' }}>
           <h1 className="serif fade-in" style={{ fontSize: '3.5rem', marginBottom: '1rem', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.5)', wordBreak: 'keep-all' }}>
-            어떤 계절, 어떤 수면 습관에도<br/>완벽하게 스며드는 포근함
+            사계절 내내<br/>아이 피부에 가장 편안한 선택
           </h1>
           <p className="fade-in" style={{ fontSize: '1.25rem', marginBottom: '2.5rem', opacity: 0.9, textShadow: '0 1px 5px rgba(0,0,0,0.5)', fontWeight: '300', wordBreak: 'keep-all' }}>
-             연약한 우리 아이의 첫 잠자리를 지키는 프리미엄 국내생산 방수패드, <b style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.25)', padding: '2px 12px', borderRadius: '8px' }}>Mula</b>
+             국내 생산 순면 기반, 쾌적함과 안전성을 담은 방수패드 <b style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.25)', padding: '2px 12px', borderRadius: '8px' }}>Mula</b>
           </p>
           
           <div className="fade-in" style={{ animationDelay: '0.3s' }}>
@@ -128,12 +128,12 @@ export default function HomePage() {
           <div style={{ flex: '1 1 500px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '5% 8%' }}>
             <div>
               <h2 className="serif" style={{ fontSize: '2.8rem', color: 'var(--dark-brown)', marginBottom: '1.5rem', lineHeight: '1.2' }}>
-                오직 안심할 수 있는<br/>100% 국내 생산의 퀄리티
+                안심할 수 있는<br/>100% 국내 생산
               </h2>
               <p style={{ color: 'var(--warm-grey)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
-                연약한 아이 피부에 닿는 면적은 오직 순면만 허락합니다. 원단 직조부터 후가공, 봉제 마감까지 대한민국 공장에서 엄격하게 수제작으로 관리되어, 수 백 번 세탁해도 변함없는 견고함을 제공합니다.
+                피부에 닿는 면은 순면만 사용합니다. 원단 직조부터 가공, 봉제까지 전 공정을 국내에서 관리해 반복 세탁에도 형태와 품질을 안정적으로 유지합니다.
               </p>
-              <Link href="/news" className="btn btn-outline" style={{ fontSize: '1rem' }}>공정 스토리 읽기</Link>
+              <Link href="/news" className="btn btn-outline" style={{ fontSize: '1rem' }}>공정 스토리</Link>
             </div>
           </div>
         </div>
@@ -151,8 +151,8 @@ export default function HomePage() {
       }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(74, 68, 61, 0.7)', zIndex: 1 }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2, color: 'var(--pure-white)' }}>
-           <h2 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', fontWeight: '500' }}>당신의 첫 방수패드, <span style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.2)', padding: '0 12px', borderRadius: '8px' }}>Mula</span></h2>
-           <p style={{ fontSize: '1.3rem', marginBottom: '3rem', opacity: 0.9 }}>미니 사이즈부터 대형 패밀리 침대용까지, 우리집에 맞는 사이즈를 쇼핑몰에서 바로 만나보세요.</p>
+           <h2 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', fontWeight: '500' }}>우리 아이 첫 방수패드, <span style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.2)', padding: '0 12px', borderRadius: '8px' }}>Mula</span></h2>
+           <p style={{ fontSize: '1.3rem', marginBottom: '3rem', opacity: 0.9 }}>미니부터 패밀리 사이즈까지, 우리 집에 맞는 사이즈를 바로 만나보세요.</p>
            <a href="https://www.mula.co.kr/" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: '16px 50px', fontSize: '1.2rem', backgroundColor: 'var(--accent-beige)', color: 'var(--dark-brown)' }}>공식몰 방문하기</a>
         </div>
       </section>

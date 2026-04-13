@@ -17,7 +17,7 @@ export default function GuidePage() {
           height: '70vh', 
           minHeight: '600px',
           padding: '0',
-          backgroundImage: 'url(/assets/e13ac44d902cf740.jpg)',
+          backgroundImage: 'url(/assets/df8ac006e1fd7618.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',
@@ -29,10 +29,10 @@ export default function GuidePage() {
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 1 }}></div>
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 5%' }}>
           <h1 className="serif fade-in" style={{ fontSize: '4rem', marginBottom: '1.5rem', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-            본질에 집중한 섬유의 미학
+            아이를 기준으로 만든 침구
           </h1>
           <p className="fade-in" style={{ fontSize: '1.3rem', opacity: 0.9, letterSpacing: '1px' }}>
-            우리 아이를 위한 가장 올바른 기준, <strong className="mula-highlight">뮤라(Mula)</strong>
+            안전함과 편안함을 담은 <strong className="mula-highlight">뮤라(Mula)</strong>
           </p>
         </div>
       </section>
@@ -42,7 +42,6 @@ export default function GuidePage() {
           <SummaryBlock
             title="1983년부터 이어온 40년 섬유 장인의 고집"
             description="뮤라는 대한민국 대구에 뿌리를 둔 모기업 '풍전티티'의 기술력을 집약한 자체 브랜드입니다. OEM과 단순 유통을 거부하고, 무려 14개의 관련 특허를 기반으로 원단 제직부터 완제품까지 100% 자체 생산하는 'All-in-One' 시스템을 고집합니다."
-            updatedAt="2026-04-13"
           />
       </div>
 
