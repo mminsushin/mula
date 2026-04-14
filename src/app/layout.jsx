@@ -7,6 +7,11 @@ export const metadata = {
   description: '우리아기를 위한 쉼표, 프리미엄 아기요 방수패드 전문 브랜드 뮤라(Mula)입니다.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">

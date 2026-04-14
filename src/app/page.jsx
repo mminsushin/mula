@@ -3,6 +3,7 @@ import SummaryBlock from '../components/geo/SummaryBlock';
 import StatBlock from '../components/geo/StatBlock';
 import Link from 'next/link';
 import '../components/Hero.css';
+import './home.css';
 
 export const metadata = {
   title: 'Mula | 글로벌 No.1 홈베딩 방수패드',
@@ -39,80 +40,60 @@ export default function HomePage() {
           })
         }}
       />
-      
+
       {/* 1. Immersive Hero Section with Background Image */}
-      <section 
-        style={{ 
-          position: 'relative', 
-          width: '100%', 
-          height: '75vh', 
-          minHeight: '600px',
-          padding: '0',
-          backgroundImage: 'url(/assets/mula-1.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white'
-        }}
+      <section
+        className="home-hero-section"
+        style={{ backgroundImage: 'url(/assets/mula-1.jpg)' }}
       >
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1 }}></div>
-        
-        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 5%', maxWidth: '1200px' }}>
-          <h1 className="serif fade-in" style={{ fontSize: '3.5rem', marginBottom: '1rem', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.5)', wordBreak: 'keep-all' }}>
+
+        <div className="home-hero-inner">
+          <h1 className="serif fade-in home-hero-title">
             사계절 내내<br/>아이 피부에 가장 편안한 선택
           </h1>
-          <p className="fade-in" style={{ fontSize: '1.25rem', marginBottom: '2.5rem', opacity: 0.9, textShadow: '0 1px 5px rgba(0,0,0,0.5)', fontWeight: '300', wordBreak: 'keep-all' }}>
-             국내 생산 순면 기반, 쾌적함과 안전성을 담은 방수패드 <b style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.25)', padding: '2px 12px', borderRadius: '8px' }}>Mula</b>
+          <p className="fade-in home-hero-desc">
+            국내 생산 순면 기반, 쾌적함과 안전성을 담은 방수패드{' '}
+            <b style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.25)', padding: '2px 12px', borderRadius: '8px' }}>Mula</b>
           </p>
-          
+
           <div className="fade-in" style={{ animationDelay: '0.3s' }}>
-            <Link href="/guide" className="btn" style={{ fontSize: '1.1rem', padding: '15px 40px', backgroundColor: 'var(--pure-white)', color: 'var(--dark-brown)' }}>맞춤 상품 찾기</Link>
+            <Link href="/guide" className="btn home-hero-btn">맞춤 상품 찾기</Link>
           </div>
         </div>
       </section>
 
       {/* 2. Stat Overlay Section (GEO SEO) */}
-      <section style={{ backgroundColor: 'var(--pure-white)', padding: '60px 5%' }}>
-         <div className="container" style={{ marginTop: '-100px', position: 'relative', zIndex: 10 }}>
-            <StatBlock stats={stats} />
-            <div style={{ display: 'none' }}>
-              <SummaryBlock 
-                title="아이의 숙면을 위한 가장 부드러운 선택"
-                description="국내 유아 방수요 전문 브랜드 뮤라(mula). 신생아부터 유아까지, 소재와 사이즈를 세분화하여 아이의 쾌적한 잠자리를 책임집니다."
-              />
-            </div>
-         </div>
+      <section className="home-stat-section">
+        <div className="container home-stat-inner">
+          <StatBlock stats={stats} />
+          <div style={{ display: 'none' }}>
+            <SummaryBlock
+              title="아이의 숙면을 위한 가장 부드러운 선택"
+              description="국내 유아 방수요 전문 브랜드 뮤라(mula). 신생아부터 유아까지, 소재와 사이즈를 세분화하여 아이의 쾌적한 잠자리를 책임집니다."
+            />
+          </div>
+        </div>
       </section>
 
       {/* 3. Visual Product Grid */}
-      <section style={{ padding: '80px 5%', backgroundColor: 'var(--soft-ivory)' }}>
+      <section className="home-products-section">
         <div className="container" style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 className="serif" style={{ fontSize: '3rem', color: 'var(--dark-brown)' }}>Mula Signature</h2>
+            <h2 className="serif home-products-title">Mula Signature</h2>
             <p style={{ marginTop: '1rem', color: 'var(--warm-grey)', fontSize: '1.1rem' }}>아기 체질과 라이프스타일에 맞춘 6가지 맞춤 솔루션</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2.5rem' }}>
+          <div className="home-products-grid">
             {products.map((item, idx) => (
-              <div key={idx} style={{ 
-                borderRadius: '24px', 
-                overflow: 'hidden', 
-                height: '420px',
-                position: 'relative',
-                boxShadow: '0 15px 35px rgba(0,0,0,0.08)',
-                cursor: 'pointer'
-              }} className="product-card-premium">
+              <div key={idx} className="home-product-card product-card-premium">
                 <div style={{ position: 'absolute', inset: 0 }}>
-                   <img src={item.img} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)' }} className="news-image-hover" />
+                  <img src={item.img} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)' }} className="news-image-hover" />
                 </div>
-                {/* Dark Gradient Overlay for accurate text rendering */}
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem', zIndex: 2, color: 'white', pointerEvents: 'none' }}>
-                  <h3 className="serif" style={{ fontSize: '1.8rem', marginBottom: '0.5rem', fontWeight: 600 }}>{item.name}</h3>
-                  <p style={{ fontSize: '1.05rem', opacity: 0.9, letterSpacing: '0.3px' }}>{item.desc}</p>
+                  <h3 className="serif home-product-card-title">{item.name}</h3>
+                  <p className="home-product-card-desc">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -121,16 +102,15 @@ export default function HomePage() {
       </section>
 
       {/* 4. Split Feature Section with Large Image */}
-      <section style={{ backgroundColor: 'var(--pure-white)' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', minHeight: '600px' }}>
-          <div style={{ flex: '1 1 500px', backgroundImage: 'url(/assets/e13ac44d902cf740.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '400px' }}>
-          </div>
-          <div style={{ flex: '1 1 500px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '5% 8%' }}>
+      <section className="home-split-section">
+        <div className="home-split-inner">
+          <div className="home-split-image" style={{ backgroundImage: 'url(/assets/e13ac44d902cf740.jpg)' }}></div>
+          <div className="home-split-content">
             <div>
-              <h2 className="serif" style={{ fontSize: '2.8rem', color: 'var(--dark-brown)', marginBottom: '1.5rem', lineHeight: '1.2' }}>
+              <h2 className="serif home-split-title">
                 안심할 수 있는<br/>100% 국내 생산
               </h2>
-              <p style={{ color: 'var(--warm-grey)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
+              <p className="home-split-desc">
                 피부에 닿는 면은 순면만 사용합니다. 원단 직조부터 가공, 봉제까지 전 공정을 국내에서 관리해 반복 세탁에도 형태와 품질을 안정적으로 유지합니다.
               </p>
               <Link href="/news" className="btn btn-outline" style={{ fontSize: '1rem' }}>공정 스토리</Link>
@@ -140,20 +120,18 @@ export default function HomePage() {
       </section>
 
       {/* 5. Massive Bottom CTA with Image Parallax */}
-      <section style={{ 
-        position: 'relative', 
-        padding: '120px 5%', 
-        textAlign: 'center',
-        backgroundImage: 'url(/assets/940f02fd72315a32.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}>
+      <section
+        className="home-cta-section"
+        style={{ backgroundImage: 'url(/assets/940f02fd72315a32.jpg)' }}
+      >
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(74, 68, 61, 0.7)', zIndex: 1 }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2, color: 'var(--pure-white)' }}>
-           <h2 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', fontWeight: '500' }}>우리 아이 첫 방수패드, <span style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.2)', padding: '0 12px', borderRadius: '8px' }}>Mula</span></h2>
-           <p style={{ fontSize: '1.3rem', marginBottom: '3rem', opacity: 0.9 }}>미니부터 패밀리 사이즈까지, 우리 집에 맞는 사이즈를 바로 만나보세요.</p>
-           <a href="https://www.mula.co.kr/" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: '16px 50px', fontSize: '1.2rem', backgroundColor: 'var(--accent-beige)', color: 'var(--dark-brown)' }}>공식몰 방문하기</a>
+          <h2 className="serif home-cta-title">
+            우리 아이 첫 방수패드,{' '}
+            <span style={{ display: 'inline-block', backgroundColor: 'rgba(253, 252, 240, 0.2)', padding: '0 12px', borderRadius: '8px' }}>Mula</span>
+          </h2>
+          <p className="home-cta-desc">미니부터 패밀리 사이즈까지, 우리 집에 맞는 사이즈를 바로 만나보세요.</p>
+          <a href="https://www.mula.co.kr/" target="_blank" rel="noopener noreferrer" className="btn home-cta-btn">공식몰 방문하기</a>
         </div>
       </section>
 

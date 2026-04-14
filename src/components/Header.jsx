@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './Header.css';
 
@@ -16,34 +16,43 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="header-container">
-        <div className="logo">
-          <Link href="/">
-            <img src="/assets/logo.png" alt="mula logo" className="logo-img" />
-          </Link>
-        </div>
-        
-        <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>홈</Link>
-          <Link href="/guide" onClick={() => setIsMobileMenuOpen(false)}>안내</Link>
-          <Link href="/news" onClick={() => setIsMobileMenuOpen(false)}>뉴스/블로그</Link>
-          <Link href="/qna" onClick={() => setIsMobileMenuOpen(false)}>QnA</Link>
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>문의하기</Link>
-          <a href="https://www.mula.co.kr/" target="_blank" rel="noopener noreferrer" className="shop-link" onClick={() => setIsMobileMenuOpen(false)}>쇼핑몰 가기</a>
-        </nav>
+  const close = () => setIsMobileMenuOpen(false);
 
-        <button 
-          className="mobile-toggle" 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span className={isMobileMenuOpen ? 'active' : ''}></span>
-          <span className={isMobileMenuOpen ? 'active' : ''}></span>
-          <span className={isMobileMenuOpen ? 'active' : ''}></span>
-        </button>
-      </div>
-    </header>
+  return (
+    <>
+      <div
+        className={`nav-overlay ${isMobileMenuOpen ? 'open' : ''}`}
+        onClick={close}
+      />
+      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="header-container">
+          <div className="logo">
+            <Link href="/" onClick={close}>
+              <img src="/assets/logo.png" alt="mula logo" className="logo-img" />
+            </Link>
+          </div>
+
+          <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`}>
+            <Link href="/" onClick={close}>홈</Link>
+            <Link href="/guide" onClick={close}>안내</Link>
+            <Link href="/news" onClick={close}>뉴스/블로그</Link>
+            <Link href="/qna" onClick={close}>QnA</Link>
+            <Link href="/contact" onClick={close}>문의하기</Link>
+            <a href="https://www.mula.co.kr/" target="_blank" rel="noopener noreferrer" className="shop-link" onClick={close}>쇼핑몰 가기</a>
+          </nav>
+
+          <button
+            className={`mobile-toggle ${isMobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="메뉴 열기/닫기"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+    </>
   );
 };
 

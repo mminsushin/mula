@@ -1,0 +1,324 @@
+/* ===== HOME PAGE RESPONSIVE STYLES ===== */
+
+/* 1. Hero Section */
+.home-hero-section {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 600px;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 5%;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.home-hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  word-break: keep-all;
+}
+
+.home-hero-desc {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  font-weight: 300;
+  word-break: keep-all;
+}
+
+/* 2. Stat Section */
+.home-stat-section {
+  background-color: var(--pure-white);
+  padding: 60px 5%;
+}
+
+.home-stat-inner {
+  margin-top: -100px;
+  position: relative;
+  z-index: 10;
+}
+
+/* 3. Product Grid Section */
+.home-products-section {
+  padding: 80px 5%;
+  background-color: var(--soft-ivory);
+}
+
+.home-products-title {
+  font-size: 3rem;
+  color: var(--dark-brown);
+}
+
+.home-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+}
+
+.home-product-card {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 420px;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.home-product-card-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.home-product-card-desc {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+}
+
+/* 4. Split Feature Section */
+.home-split-section {
+  background-color: var(--pure-white);
+  padding: 0;
+}
+
+.home-split-inner {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 600px;
+}
+
+.home-split-image {
+  flex: 1 1 500px;
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+}
+
+.home-split-content {
+  flex: 1 1 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 8%;
+}
+
+.home-split-title {
+  font-size: 2.8rem;
+  color: var(--dark-brown);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.home-split-desc {
+  color: var(--warm-grey);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* 5. CTA Section */
+.home-cta-section {
+  position: relative;
+  padding: 120px 5%;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home-cta-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.home-cta-desc {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+/* Buttons */
+.home-hero-btn {
+  font-size: 1.1rem;
+  padding: 15px 40px;
+  background-color: var(--pure-white);
+  color: var(--dark-brown);
+}
+
+.home-cta-btn {
+  padding: 16px 50px;
+  font-size: 1.2rem;
+  background-color: var(--accent-beige);
+  color: var(--dark-brown);
+}
+
+/* ===== TABLET (max-width: 992px) ===== */
+@media (max-width: 992px) {
+  .home-products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* ===== MOBILE (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  /* Hero */
+  .home-hero-section {
+    height: 60vh;
+    min-height: 480px;
+    background-attachment: scroll; /* fixed attachment breaks on iOS */
+  }
+
+  .home-hero-title {
+    font-size: 1.9rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .home-hero-desc {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Stat section */
+  .home-stat-section {
+    padding: 40px 5%;
+  }
+
+  .home-stat-inner {
+    margin-top: -60px;
+  }
+
+  /* Products */
+  .home-products-section {
+    padding: 60px 5%;
+  }
+
+  .home-products-title {
+    font-size: 1.9rem;
+  }
+
+  .home-products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .home-product-card {
+    height: 300px;
+  }
+
+  .home-product-card-title {
+    font-size: 1.3rem;
+  }
+
+  .home-product-card-desc {
+    font-size: 0.9rem;
+  }
+
+  /* Split */
+  .home-split-image {
+    flex: 1 1 100%;
+    min-height: 280px;
+  }
+
+  .home-split-content {
+    flex: 1 1 100%;
+    padding: 8% 6%;
+  }
+
+  .home-split-title {
+    font-size: 1.8rem;
+  }
+
+  .home-split-desc {
+    font-size: 1rem;
+  }
+
+  /* CTA */
+  .home-cta-section {
+    padding: 80px 5%;
+    background-attachment: scroll;
+  }
+
+  .home-cta-title {
+    font-size: 1.9rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .home-cta-desc {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Buttons */
+  .home-hero-btn {
+    font-size: 0.95rem;
+    padding: 12px 28px;
+  }
+
+  .home-cta-btn {
+    font-size: 1rem;
+    padding: 13px 32px;
+  }
+}
+
+/* ===== SMALL MOBILE (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .home-hero-section {
+    height: 55vh;
+    min-height: 400px;
+  }
+
+  .home-hero-title {
+    font-size: 1.55rem;
+  }
+
+  .home-hero-desc {
+    font-size: 0.88rem;
+  }
+
+  .home-products-title {
+    font-size: 1.6rem;
+  }
+
+  .home-cta-title {
+    font-size: 1.55rem;
+  }
+
+  .home-cta-desc {
+    font-size: 0.92rem;
+  }
+
+  .home-split-title {
+    font-size: 1.5rem;
+  }
+
+  .home-hero-btn {
+    font-size: 0.88rem;
+    padding: 10px 24px;
+  }
+
+  .home-cta-btn {
+    font-size: 0.92rem;
+    padding: 11px 28px;
+  }
+}

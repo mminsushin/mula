@@ -1,5 +1,6 @@
 import React from 'react';
 import SummaryBlock from '../../components/geo/SummaryBlock';
+import './news-page.css';
 
 export const metadata = {
   title: 'Mula 매거진 & 뉴스',
@@ -58,41 +59,26 @@ export default function NewsPage() {
     }
   ];
 
-  // Helper function to auto-highlight the brand name "뮤라"
   const highlightMula = (text) => {
     if (!text) return null;
     const parts = text.split(/(뮤라)/g);
-    return parts.map((part, index) => 
+    return parts.map((part, index) =>
       part === '뮤라' ? <span key={index} className="mula-highlight">{part}</span> : part
     );
   };
 
   return (
     <div className="fade-in">
-      
-      {/* 1. Hero / Header Section */}
-      <section style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: '350px',
-        padding: '120px 5%',
-        backgroundImage: 'url(/assets/f04eb84f35b1260c.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'white',
-        marginBottom: '3rem'
-      }}>
+
+      {/* 1. Hero Section */}
+      <section
+        className="news-page-hero"
+        style={{ backgroundImage: 'url(/assets/f04eb84f35b1260c.jpg)' }}
+      >
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(50, 45, 40, 0.5)', zIndex: 1 }}></div>
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          <h1 className="serif fade-in" style={{ fontSize: '3.5rem', marginBottom: '1rem', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-            뉴스 & 블로그
-          </h1>
-          <p className="fade-in" style={{ fontSize: '1.2rem', opacity: 0.9, textShadow: '0 1px 5px rgba(0,0,0,0.5)', letterSpacing: '0.5px' }}>
+          <h1 className="serif fade-in news-page-hero-title">뉴스 & 블로그</h1>
+          <p className="fade-in news-page-hero-desc">
             뮤라의 최신 브랜드 소식과 유익한 육아 지식을 전해드립니다.
           </p>
         </div>
@@ -100,8 +86,7 @@ export default function NewsPage() {
 
       {/* 2. Content Container */}
       <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%', paddingBottom: '100px' }}>
-        
-        {/* Invisible SEO Summary Block */}
+
         <div style={{ display: 'none' }}>
           <SummaryBlock
             title="Mula 매거진 & 브랜드 소식"
@@ -109,41 +94,43 @@ export default function NewsPage() {
             updatedAt="2026-04-13"
           />
         </div>
-        
-        {/* 3-Column Image Card Grid layout */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', 
-          gap: '2.5rem', 
-          marginTop: '2rem' 
-        }}>
+
+        {/* Card Grid */}
+        <div
+          className="news-page-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+            gap: '2.5rem',
+            marginTop: '2rem'
+          }}
+        >
           {posts.map((post) => (
-            <article key={post.id} style={{ 
-              backgroundColor: 'white', 
-              borderRadius: '16px', 
-              overflow: 'hidden', 
+            <article key={post.id} style={{
+              backgroundColor: 'white',
+              borderRadius: '16px',
+              overflow: 'hidden',
               boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               display: 'flex',
               flexDirection: 'column',
               cursor: 'pointer'
             }} className="news-card-hover">
-              
-              {/* Card Image Banner */}
+
               <div style={{ height: '250px', overflow: 'hidden', position: 'relative' }}>
-                <img 
-                  src={post.mainImage} 
-                  alt={post.title} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                <img
+                  src={post.mainImage}
+                  alt={post.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                   className="news-image-hover"
                 />
-                <span style={{ 
+                <span style={{
                   position: 'absolute',
                   top: '15px',
                   left: '15px',
-                  display: 'inline-block', 
-                  padding: '6px 14px', 
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)', 
+                  display: 'inline-block',
+                  padding: '6px 14px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
                   color: 'var(--dark-brown)',
                   fontWeight: 'bold',
                   borderRadius: '20px',
@@ -153,17 +140,16 @@ export default function NewsPage() {
                   {post.tag}
                 </span>
               </div>
-              
-              {/* Card Content Body */}
+
               <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                 <h2 className="serif" style={{ fontSize: '1.4rem', lineHeight: '1.4', marginBottom: '1rem', color: 'var(--dark-brown)' }}>
                   {post.title}
                 </h2>
-                <p style={{ 
-                  color: 'var(--warm-grey)', 
-                  lineHeight: '1.6', 
-                  fontSize: '0.95rem', 
-                  flexGrow: 1, 
+                <p style={{
+                  color: 'var(--warm-grey)',
+                  lineHeight: '1.6',
+                  fontSize: '0.95rem',
+                  flexGrow: 1,
                   display: '-webkit-box',
                   WebkitLineClamp: 3,
                   WebkitBoxOrient: 'vertical',
@@ -178,23 +164,26 @@ export default function NewsPage() {
                   <span style={{ color: 'var(--accent-beige)', fontSize: '0.9rem', fontWeight: 'bold' }}>자세히 보기 &rarr;</span>
                 </div>
               </div>
-              
             </article>
           ))}
         </div>
-        
-        {/* 페이징 (UI용) */}
+
+        {/* 페이징 */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem', gap: '10px' }}>
-           <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--dark-brown)', color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>1</button>
-           <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #ddd', backgroundColor: 'transparent', color: '#666', cursor: 'pointer' }}>2</button>
+          <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--dark-brown)', color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>1</button>
+          <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #ddd', backgroundColor: 'transparent', color: '#666', cursor: 'pointer' }}>2</button>
         </div>
       </div>
-      
-      {/* Add hover effect CSS locally for cards since it's only used here */}
+
       <style dangerouslySetInnerHTML={{__html: `
         .news-card-hover:hover {
           transform: translateY(-5px);
           box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+        }
+        @media (max-width: 768px) {
+          .news-page-grid {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}} />
     </div>

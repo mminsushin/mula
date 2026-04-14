@@ -1,6 +1,7 @@
 import React from 'react';
 import SummaryBlock from '../../components/geo/SummaryBlock';
 import QnaList from '../../components/QnaList';
+import './qna-page.css';
 
 export const metadata = {
   title: 'Mula 자주 묻는 질문(FAQ)',
@@ -33,7 +34,6 @@ export default function QnAPage() {
 
   return (
     <div className="fade-in">
-      {/* FAQ JSON-LD (Search / GEO Optimization) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -52,39 +52,23 @@ export default function QnAPage() {
         }}
       />
 
-      {/* Interactive Title Block with Full-Width Background */}
-      <section style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: '350px',
-        padding: '120px 5%',
-        backgroundImage: 'url(/assets/d31bd7241e8ff98d.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'white',
-        marginBottom: '1rem'
-      }}>
+      {/* Hero Section */}
+      <section
+        className="qna-page-hero"
+        style={{ backgroundImage: 'url(/assets/d31bd7241e8ff98d.jpg)' }}
+      >
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(74, 68, 61, 0.45)', zIndex: 1 }}></div>
-        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          <h1 className="serif fade-in" style={{ fontSize: '3.5rem', marginBottom: '1rem', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-            자주 묻는 질문
-          </h1>
-          <p className="fade-in" style={{ fontSize: '1.15rem', opacity: 0.9, textShadow: '0 1px 5px rgba(0,0,0,0.5)' }}>
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <h1 className="serif fade-in qna-page-hero-title">자주 묻는 질문</h1>
+          <p className="fade-in qna-page-hero-desc">
             세탁 방법부터 사이즈 가이드까지, 뮤라에 대한 모든 궁금증을 빠르게 해결하세요.
           </p>
         </div>
       </section>
 
-      {/* Client Component for Interactive Searching and Accordion display */}
       <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%', paddingBottom: '100px' }}>
         <QnaList faqs={faqs} />
       </div>
-
     </div>
   );
 }
