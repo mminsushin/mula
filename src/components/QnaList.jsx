@@ -59,13 +59,8 @@ export default function QnaList({ faqs }) {
         </span>개의 답변이 있습니다.
       </div>
 
-      {/* FAQ Cards (Strictly 2 Column Grid) */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(550px, 1fr))', 
-        gap: '1.5rem',
-        alignItems: 'start'
-      }}>
+      {/* FAQ Cards */}
+      <div className="qna-list-grid">
         {filteredFaqs.length > 0 ? (
           filteredFaqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
@@ -85,11 +80,10 @@ export default function QnaList({ faqs }) {
                 }}
               >
                 {/* Question */}
-                <div style={{ 
+                <div className="qna-card-question" style={{ 
                   display: 'flex', 
                   justifyContent: 'space-between', 
                   alignItems: 'center',
-                  padding: '1.5rem 2rem',
                   backgroundColor: isOpen ? 'var(--pale-ivory)' : 'transparent',
                   transition: 'background-color 0.3s ease'
                 }}>
@@ -106,11 +100,8 @@ export default function QnaList({ faqs }) {
 
                 {/* Answer */}
                 {isOpen && (
-                  <div style={{ 
-                    padding: '0 2rem 2rem 4rem', 
+                  <div className="qna-card-answer" style={{ 
                     borderTop: '1px dashed #eee',
-                    marginTop: '1rem',
-                    paddingTop: '1.5rem',
                     animation: 'fadeIn 0.3s ease'
                   }}>
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
