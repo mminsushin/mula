@@ -1,243 +1,474 @@
-/* ===== GUIDE PAGE RESPONSIVE STYLES ===== */
+/* ===== GUIDE PAGE — REDESIGNED ===== */
 
-.guide-page-hero {
+/* ── 1. Hero ── */
+.guide-hero {
   position: relative;
   width: 100%;
-  height: 70vh;
-  min-height: 500px;
-  padding: 0;
+  min-height: 350px;
+  padding: 120px 5%;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.guide-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.62) 100%);
+}
+.guide-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
   color: white;
+  padding: 0 5%;
+  max-width: 780px;
 }
-
-.guide-page-hero-title {
-  font-size: 4rem;
+.guide-hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  padding: 5px 14px;
+  border-radius: 20px;
   margin-bottom: 1.5rem;
-  font-weight: 500;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  word-break: keep-all;
-}
-
-.guide-page-hero-desc {
-  font-size: 1.3rem;
-  opacity: 0.9;
-  letter-spacing: 1px;
-  word-break: keep-all;
-}
-
-/* Split sections */
-.guide-split-section {
-  background-color: var(--soft-ivory);
-  padding: 100px 5%;
-  margin-top: 5rem;
-}
-
-.guide-split-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-  align-items: center;
-}
-
-.guide-split-img-wrap {
-  flex: 1 1 500px;
-}
-
-.guide-split-text {
-  flex: 1 1 500px;
-}
-
-.guide-split-subtitle {
-  color: var(--warm-grey);
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
   font-weight: bold;
 }
-
-.guide-split-title {
-  font-size: 2.5rem;
-  color: var(--dark-brown);
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
+.guide-hero-title {
+  font-size: 4.2rem;
+  font-weight: 500;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
   word-break: keep-all;
 }
-
-.guide-split-body {
-  color: var(--dark-brown);
+.guide-hero-sub {
   font-size: 1.1rem;
-  line-height: 1.8;
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.3px;
+  word-break: keep-all;
+}
+.guide-hero-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: white;
+  color: var(--dark-brown);
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.guide-hero-btn:hover {
+  background-color: var(--accent-beige);
+  transform: translateY(-2px);
 }
 
-/* Patent section */
-.guide-patent-section {
-  padding: 120px 5%;
+/* ── 2. Stats Strip ── */
+.guide-stats-section {
+  background-color: var(--pure-white);
+  border-bottom: 1px solid var(--soft-ivory);
 }
-
-.guide-patent-inner {
+.guide-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.guide-stat-card {
   display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 3rem;
-  position: 'relative';
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-right: 1px solid var(--soft-ivory);
+  gap: 0.2rem;
+}
+.guide-stat-card:last-child { border-right: none; }
+.guide-stat-num {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--dark-brown);
+  line-height: 1;
+}
+.guide-stat-label {
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: var(--dark-brown);
+  margin-top: 0.25rem;
+}
+.guide-stat-sub {
+  font-size: 0.75rem;
+  color: var(--warm-grey);
 }
 
-.guide-patent-text-box {
-  flex: 1 1 450px;
-  background-color: #f2f2f2;
-  padding: 4rem 3rem;
-  align-self: center;
+/* ── 3. Intro/Origin Story ── */
+.guide-intro-section {
+  background-color: var(--soft-ivory);
+  padding: 100px 5%;
 }
-
-.guide-patent-title {
-  font-size: 2rem;
+.guide-intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.guide-intro-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  display: block;
+}
+.guide-intro-subtitle {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  color: var(--warm-grey);
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+.guide-intro-title {
+  font-size: 2.4rem;
+  color: var(--dark-brown);
+  line-height: 1.35;
   margin-bottom: 1.5rem;
-  color: #333;
+  word-break: keep-all;
+}
+.guide-intro-body {
+  color: var(--dark-brown);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.guide-intro-body p { margin: 0; }
+
+/* ── 4. Guide Hub ── */
+.guide-hub-section {
+  background-color: var(--pure-white);
+  padding: 100px 5%;
+}
+.guide-section-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.guide-hub-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.guide-hub-title {
+  font-size: 2.4rem;
+  color: var(--dark-brown);
+  margin-bottom: 0.75rem;
+}
+.guide-hub-desc {
+  color: var(--warm-grey);
+  font-size: 1.05rem;
+}
+.guide-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
+/* Row 1: 3 cards equal width */
+.guide-hub-card:nth-child(-n+3) { grid-column: span 2; }
+/* Row 2: 2 wider cards */
+.guide-hub-card:nth-child(4),
+.guide-hub-card:nth-child(5) { grid-column: span 3; }
+
+.guide-hub-card {
+  position: relative;
+  height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.guide-hub-card:nth-child(4),
+.guide-hub-card:nth-child(5) { height: 260px; }
+.guide-hub-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+.guide-hub-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+.guide-hub-card:hover .guide-hub-card-bg { transform: scale(1.06); }
+.guide-hub-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.05) 65%);
+}
+.guide-hub-card-body {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1.4rem 1.5rem;
+  color: white;
+  z-index: 2;
+}
+.guide-hub-card-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 0.45rem;
+  color: rgba(255,255,255,0.78);
+}
+.guide-hub-card-title {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  word-break: keep-all;
+}
+.guide-hub-card-desc {
+  font-size: 0.8rem;
+  opacity: 0.72;
+  line-height: 1.45;
   word-break: keep-all;
 }
 
-.guide-patent-body {
-  color: #555;
-  font-size: 1.05rem;
-  line-height: 1.8;
+/* ── 5. Product Strip ── */
+.guide-products-section {
+  background-color: var(--soft-ivory);
+  padding: 80px 5%;
 }
-
-.guide-patent-img-wrap {
-  flex: 1 1 500px;
-}
-
-/* Philosophy section */
-.guide-philosophy-section {
-  background-color: var(--dark-brown);
-  color: white;
-  padding: 100px 5%;
+.guide-products-title {
+  font-size: 2rem;
+  color: var(--dark-brown);
+  margin-bottom: 2.5rem;
   text-align: center;
 }
+.guide-products-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.guide-product-item { text-align: center; }
+.guide-product-img-wrap {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: var(--pure-white);
+  margin-bottom: 0.85rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.guide-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+.guide-product-img-wrap:hover .guide-product-img { transform: scale(1.04); }
+.guide-product-name {
+  font-size: 0.92rem;
+  color: var(--dark-brown);
+  font-weight: bold;
+  margin: 0;
+}
 
+/* ── 6. Philosophy ── */
+.guide-philosophy-section {
+  position: relative;
+  padding: 130px 5%;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+.guide-philosophy-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 18, 8, 0.75);
+}
+.guide-philosophy-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
 .guide-philosophy-title {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   margin-bottom: 2rem;
-  word-break: keep-all;
-}
-
-.guide-philosophy-quote {
-  font-size: 1.2rem;
-  line-height: 2;
   color: var(--accent-beige);
+  letter-spacing: 2px;
+}
+.guide-philosophy-quote {
+  font-size: 1.3rem;
+  line-height: 2.1;
+  color: rgba(255,255,255,0.95);
+  word-break: keep-all;
+  margin-bottom: 2rem;
+}
+.guide-philosophy-body {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  opacity: 0.65;
   word-break: keep-all;
 }
 
-.guide-philosophy-body {
+/* ── 7. Company ── */
+.guide-company-section {
+  padding: 100px 5%;
+  background-color: var(--pure-white);
+}
+.guide-company-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.guide-company-img-wrap {
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+.guide-company-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.guide-company-title {
+  font-size: 2.2rem;
+  color: var(--dark-brown);
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
+  word-break: keep-all;
+}
+.guide-company-body {
+  color: var(--dark-brown);
   font-size: 1.05rem;
+  line-height: 1.9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.guide-company-body p { margin: 0; }
+.guide-company-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.guide-company-table th,
+.guide-company-table td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--soft-ivory);
+}
+.guide-company-table th {
+  color: var(--warm-grey);
+  font-weight: bold;
+  width: 70px;
+  white-space: nowrap;
+}
+.guide-company-table td { color: var(--dark-brown); }
+.guide-company-table tr:last-child th,
+.guide-company-table tr:last-child td { border-bottom: none; }
+
+/* ── 8. FAQ ── */
+.guide-faq-section {
+  background-color: var(--soft-ivory);
+  padding: 100px 5%;
+}
+.guide-faq-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.guide-faq-title {
+  font-size: 2rem;
+  color: var(--dark-brown);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.guide-faq-item {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+.guide-faq-item:last-child { border-bottom: none; margin-bottom: 0; }
+.guide-faq-q {
+  font-size: 1.12rem;
+  color: var(--dark-brown);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide-faq-a {
+  color: var(--warm-grey);
   line-height: 1.8;
-  opacity: 0.8;
+  font-size: 0.98rem;
+  word-break: keep-all;
+  margin: 0;
 }
 
-/* ===== MOBILE (max-width: 768px) ===== */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .guide-hub-grid { grid-template-columns: repeat(2, 1fr); }
+  .guide-hub-card:nth-child(-n+3) { grid-column: span 1; }
+  .guide-hub-card:nth-child(4),
+  .guide-hub-card:nth-child(5) { grid-column: span 1; height: 290px; }
+}
+@media (max-width: 992px) {
+  .guide-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .guide-company-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .guide-products-strip { grid-template-columns: repeat(2, 1fr); }
+  .guide-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .guide-stat-card:nth-child(2) { border-right: none; }
+}
 @media (max-width: 768px) {
-  .guide-page-hero {
-    height: 55vh;
-    min-height: 380px;
-  }
-
-  .guide-page-hero-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .guide-page-hero-desc {
-    font-size: 1rem;
-    letter-spacing: 0;
-  }
-
-  .guide-split-section {
-    padding: 60px 5%;
-    margin-top: 2rem;
-  }
-
-  .guide-split-inner {
-    gap: 2rem;
-  }
-
-  .guide-split-img-wrap,
-  .guide-split-text {
-    flex: 1 1 100%;
-  }
-
-  .guide-split-title {
-    font-size: 1.7rem;
-  }
-
-  .guide-split-subtitle {
-    font-size: 1rem;
-  }
-
-  .guide-split-body {
-    font-size: 1rem;
-  }
-
-  .guide-patent-section {
-    padding: 60px 5%;
-  }
-
-  .guide-patent-text-box {
-    flex: 1 1 100%;
-    padding: 2.5rem 1.5rem;
-    margin-top: 0;
-  }
-
-  .guide-patent-img-wrap {
-    flex: 1 1 100%;
-  }
-
-  .guide-patent-title {
-    font-size: 1.5rem;
-  }
-
-  .guide-patent-body {
-    font-size: 1rem;
-  }
-
-  .guide-philosophy-section {
-    padding: 70px 5%;
-  }
-
-  .guide-philosophy-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .guide-philosophy-quote {
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  .guide-philosophy-body {
-    font-size: 0.95rem;
-  }
+  .guide-hero { padding: 80px 5%; min-height: 260px; background-attachment: scroll; }
+  .guide-hero-title { font-size: 2.4rem; }
+  .guide-hero-sub { font-size: 0.95rem; }
+  .guide-intro-section { padding: 60px 5%; }
+  .guide-intro-title { font-size: 1.85rem; }
+  .guide-hub-section { padding: 60px 5%; }
+  .guide-hub-grid { grid-template-columns: 1fr 1fr; }
+  .guide-hub-card:nth-child(-n+3) { height: 240px; }
+  .guide-hub-card:nth-child(4),
+  .guide-hub-card:nth-child(5) { height: 240px; }
+  .guide-products-section { padding: 55px 5%; }
+  .guide-philosophy-section { padding: 80px 5%; background-attachment: scroll; }
+  .guide-philosophy-quote { font-size: 1.05rem; }
+  .guide-company-section { padding: 60px 5%; }
+  .guide-company-title { font-size: 1.8rem; }
+  .guide-faq-section { padding: 60px 5%; }
 }
-
-/* ===== SMALL MOBILE (max-width: 480px) ===== */
 @media (max-width: 480px) {
-  .guide-page-hero-title {
-    font-size: 1.6rem;
-  }
-
-  .guide-page-hero-desc {
-    font-size: 0.9rem;
-  }
-
-  .guide-split-title {
-    font-size: 1.4rem;
-  }
-
-  .guide-patent-title {
-    font-size: 1.3rem;
-  }
-
-  .guide-philosophy-title {
-    font-size: 1.5rem;
-  }
+  .guide-hero-title { font-size: 1.9rem; }
+  .guide-hero-btn { font-size: 0.9rem; padding: 12px 24px; }
+  .guide-stats-inner { grid-template-columns: 1fr 1fr; }
+  .guide-stat-num { font-size: 1.9rem; }
+  .guide-stat-card { padding: 1.75rem 0.75rem; }
+  .guide-hub-grid { grid-template-columns: 1fr; }
+  .guide-hub-card:nth-child(-n+3),
+  .guide-hub-card:nth-child(4),
+  .guide-hub-card:nth-child(5) { grid-column: span 1; height: 220px; }
+  .guide-products-strip { grid-template-columns: 1fr 1fr; }
+  .guide-intro-title { font-size: 1.6rem; }
+  .guide-company-title { font-size: 1.6rem; }
+  .guide-hub-title { font-size: 1.8rem; }
+  .guide-philosophy-title { font-size: 1.75rem; }
+  .guide-faq-title { font-size: 1.6rem; }
 }

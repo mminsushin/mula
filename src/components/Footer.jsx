@@ -1,9 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
+
+const GEO_SCHEMAS = ['Organization', 'WebSite', 'FAQPage', 'Article', 'Blog', 'BlogPosting', 'AboutPage', 'Brand', 'ContactPage', 'HowTo', 'ItemList', 'BreadcrumbList'];
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#FAF9F6', borderTop: '1px solid #EBE9E1', padding: '60px 5% 40px', color: 'var(--warm-grey)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-      <div className="container" style={{ maxWidth: '1400px', margin: '0 auto' }}>
+    <footer style={{ backgroundColor: '#FAF9F6', borderTop: '1px solid #EBE9E1', color: 'var(--warm-grey)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+      <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 5% 40px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', borderBottom: '1px solid #EBE9E1', paddingBottom: '3rem', marginBottom: '3rem' }}>
           
           {/* CS Center */}
@@ -63,6 +66,30 @@ export default function Footer() {
           <div style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: '#AAA' }}>
             Copyright ⓒ 2024 <strong>(주)풍전티.티</strong> all rights reserved.
           </div>
+        </div>
+      </div>
+
+      {/* GEO Readiness Strip */}
+      <div className="geo-readiness-strip">
+        <div className="geo-readiness-inner">
+          <span className="geo-readiness-label">GEO READINESS</span>
+          <div className="geo-readiness-checks">
+            <span className="geo-readiness-check">
+              <span className="geo-readiness-check-ok">✓</span> robots.txt (AI 크롤러 허용)
+            </span>
+            <span className="geo-readiness-check">
+              <span className="geo-readiness-check-ok">✓</span> sitemap.xml (11 URL)
+            </span>
+            <span className="geo-readiness-check">
+              <span className="geo-readiness-check-ok">✓</span> llms.txt (AI 팩트 파일)
+            </span>
+          </div>
+          <div className="geo-readiness-schemas">
+            {GEO_SCHEMAS.map((s) => (
+              <span key={s} className="geo-readiness-schema-chip">{s}</span>
+            ))}
+          </div>
+          <Link href="/geo" className="geo-readiness-link">GEO 리포트 →</Link>
         </div>
       </div>
     </footer>

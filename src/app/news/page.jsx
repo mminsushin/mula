@@ -1,97 +1,91 @@
-import React from 'react';
+import Link from 'next/link';
 import SummaryBlock from '../../components/geo/SummaryBlock';
+import GeoBadge from '../../components/geo/GeoBadge';
+import { posts } from './posts';
 import './news-page.css';
 
 export const metadata = {
   title: 'Mula 매거진 & 뉴스',
-  description: '뮤라의 최신 소식과 유용한 육아/수면 팁 매거진을 확인해보세요.',
+  description: '아기 방수요 세탁법, 신생아 침구 고르는 법, 쿨 방수요 vs 일반 비교 등 뮤라의 육아·침구 정보와 브랜드 소식을 확인하세요.',
+};
+
+const highlightMula = (text) => {
+  if (!text) return null;
+  const parts = text.split(/(뮤라)/g);
+  return parts.map((part, index) =>
+    part === '뮤라' ? <span key={index} className="mula-highlight">{part}</span> : part
+  );
 };
 
 export default function NewsPage() {
-  const posts = [
-    {
-      id: 1,
-      tag: "뉴스",
-      title: "뮤라, 자주 세탁해도 편하게 사용할 수 있는 침구 개발에 집중",
-      date: "2026. 04. 10",
-      excerpt: "뮤라는 일상에서 자주 세탁하며 위생적으로 사용할 수 있는 침구 제품 개발에 집중하고 있습니다. 기존 유아용 침구의 건조 불편과 형태 변형 문제를 줄이기 위해 원단 개발부터 제품화까지 직접 관리하는 체계를 이어가고 있습니다. 앞으로도 실용성과 소재 기술을 함께 고려한 제품 개발을 확대해나갈 계획입니다.",
-      mainImage: "/assets/B1_00916-1.jpg"
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://mula.co.kr/news#blog',
+    name: '뮤라 매거진 & 브랜드 뉴스',
+    url: 'https://mula.co.kr/news',
+    description: '아기 방수요 세탁법, 신생아 침구 선택 가이드, 쿨 방수요 vs 일반 비교 등 뮤라의 육아·침구 정보와 브랜드 소식.',
+    publisher: { '@id': 'https://mula.co.kr/#organization' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '홈', item: 'https://mula.co.kr' },
+        { '@type': 'ListItem', position: 2, name: '뉴스 & 블로그', item: 'https://mula.co.kr/news' },
+      ],
     },
-    {
-      id: 2,
-      tag: "뉴스",
-      title: "뮤라, 섬유 기술 기반의 생활 침구 브랜드로 제품군 확장",
-      date: "2026. 03. 28",
-      excerpt: "뮤라는 유아용 침구를 넘어 가족이 함께 사용할 수 있는 생활 침구 제품군으로 브랜드 확장을 이어가고 있습니다. 섬유 기반의 기능성을 바탕으로 방수패드, 방수요, 이불 등 실생활에 밀접한 제품을 선보이고 있습니다. 브랜드는 앞으로도 소재 기술을 기반으로 한 실용적인 제품 개발에 힘쓸 예정입니다.",
-      mainImage: "/assets/3714c6098a725747.jpg"
-    },
-    {
-      id: 3,
-      tag: "뉴스",
-      title: "뮤라, 원단 개발부터 생산까지 직접 책임지는 브랜드 운영 강화",
-      date: "2026. 03. 15",
-      excerpt: "뮤라는 원단 개발, 생산, 판매까지 직접 관리하는 방식으로 제품 완성도와 품질 기준을 꾸준히 관리하고 있습니다. 단순 유통 중심이 아니라 제품의 기능성과 사용성을 브랜드 기준에 맞춰 일관되게 운영하는 점이 특징입니다. 이를 통해 소비자가 안심하고 선택할 수 있는 침구 브랜드로 자리잡고자 합니다.",
-      mainImage: "/assets/c0a3fbc40603df3d.jpg"
-    },
-    {
-      id: 4,
-      tag: "블로그",
-      title: "유아용 침구는 왜 자주 세탁해 쓰기 편해야 할까요?",
-      date: "2026. 02. 20",
-      excerpt: "아기 침구는 피부에 자주 닿고 오염도 잦기 때문에 세탁과 건조가 편한지가 매우 중요합니다. 세탁 후 형태가 쉽게 변하거나 건조 시간이 길면 위생적으로 관리하기 어려워질 수 있습니다. 그래서 유아용 침구를 고를 때는 촉감뿐 아니라 관리 편의성과 실사용성을 함께 살펴보는 것이 좋습니다.",
-      mainImage: "/assets/91fe8fe5ad874717.jpg"
-    },
-    {
-      id: 5,
-      tag: "블로그",
-      title: "방수요를 고를 때 소재보다 먼저 봐야 할 것은 무엇일까요?",
-      date: "2026. 02. 05",
-      excerpt: "방수요는 단순히 물이 새지 않는지만 볼 것이 아니라, 피부에 닿는 감촉과 통기성, 세탁 후 관리 편의성까지 함께 확인해야 합니다. 특히 아기나 아이가 매일 사용하는 제품일수록 실제 생활에서 얼마나 편하게 쓸 수 있는지가 중요합니다. 좋은 방수요는 기능성과 사용감이 함께 균형을 이루는 제품입니다.",
-      mainImage: "/assets/d318502ff85e1aba.jpg"
-    },
-    {
-      id: 6,
-      tag: "블로그",
-      title: "뮤라는 왜 침구의 실용성을 중요하게 생각할까요?",
-      date: "2026. 01. 18",
-      excerpt: "뮤라는 침구가 단순히 보기 좋은 제품이 아니라 일상에서 자주 쓰이고 쉽게 관리할 수 있어야 한다고 생각합니다. 그래서 소재 기능을 높이는 동시에 세탁, 건조, 사용감까지 함께 고려한 제품 개발에 집중해왔습니다. 결국 좋은 침구는 특별한 순간보다 매일의 생활에서 편하게 느껴지는 제품에 더 가깝습니다.",
-      mainImage: "/assets/72febcdc9a356bf4.jpg"
-    }
-  ];
-
-  const highlightMula = (text) => {
-    if (!text) return null;
-    const parts = text.split(/(뮤라)/g);
-    return parts.map((part, index) =>
-      part === '뮤라' ? <span key={index} className="mula-highlight">{part}</span> : part
-    );
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: post.dateISO,
+      url: `https://mula.co.kr/news/${post.slug}`,
+      image: `https://mula.co.kr${post.mainImage}`,
+      publisher: { '@id': 'https://mula.co.kr/#organization' },
+      author: { '@id': 'https://mula.co.kr/#organization' },
+    })),
   };
 
   return (
     <div className="fade-in">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
 
-      {/* 1. Hero Section */}
+      {/* Hero */}
       <section
         className="news-page-hero"
         style={{ backgroundImage: 'url(/assets/f04eb84f35b1260c.jpg)' }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(50, 45, 40, 0.5)', zIndex: 1 }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(50, 45, 40, 0.5)', zIndex: 1 }} />
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          <h1 className="serif fade-in news-page-hero-title">뉴스 & 블로그</h1>
+          <h1 className="serif fade-in news-page-hero-title">
+            뉴스 & 블로그
+            <GeoBadge
+              label="Blog 스키마 + BlogPosting ×12"
+              schema="Blog"
+              tooltip="Blog 스키마에 12개 게시글이 BlogPosting 배열로 포함. AI가 카테고리별 콘텐츠 목록을 한 번에 파악."
+            />
+          </h1>
           <p className="fade-in news-page-hero-desc">
             뮤라의 최신 브랜드 소식과 유익한 육아 지식을 전해드립니다.
           </p>
         </div>
       </section>
 
-      {/* 2. Content Container */}
       <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%', paddingBottom: '100px' }}>
 
-        <div style={{ display: 'none' }}>
-          <SummaryBlock
-            title="Mula 매거진 & 브랜드 소식"
-            description="시즌별 신제품 소식부터 육아/수면 팁을 매주 확인하세요."
-            updatedAt="2026-04-13"
+        <SummaryBlock
+          title="아기 방수요 & 유아 침구 정보 허브"
+          description="신생아 방수요 고르는 법, 세탁·건조 가이드, 쿨 방수요 vs 일반 비교 등 뮤라가 직접 알려드리는 육아 침구 실용 정보입니다."
+          updatedAt="2026-04-22"
+        />
+
+        <div style={{ marginTop: '1.5rem' }}>
+          <GeoBadge
+            label="개별 아티클 라우트 12개"
+            schema="Article"
+            tooltip="각 게시글마다 고유 URL(/news/[slug])과 Article+BlogPosting JSON-LD 적용. AI가 개별 기사를 직접 인용 가능."
           />
         </div>
 
@@ -102,90 +96,84 @@ export default function NewsPage() {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
             gap: '2.5rem',
-            marginTop: '2rem'
+            marginTop: '2.5rem',
           }}
         >
           {posts.map((post) => (
-            <article key={post.id} style={{
-              backgroundColor: 'white',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              display: 'flex',
-              flexDirection: 'column',
-              cursor: 'pointer'
-            }} className="news-card-hover">
+            <Link key={post.id} href={`/news/${post.slug}`} style={{ textDecoration: 'none' }}>
+              <article style={{
+                backgroundColor: 'white',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                cursor: 'pointer',
+                height: '100%',
+              }} className="news-card-hover">
 
-              <div style={{ height: '250px', overflow: 'hidden', position: 'relative' }}>
-                <img
-                  src={post.mainImage}
-                  alt={post.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                  className="news-image-hover"
-                />
-                <span style={{
-                  position: 'absolute',
-                  top: '15px',
-                  left: '15px',
-                  display: 'inline-block',
-                  padding: '6px 14px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  color: 'var(--dark-brown)',
-                  fontWeight: 'bold',
-                  borderRadius: '20px',
-                  fontSize: '0.8rem',
-                  boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-                }}>
-                  {post.tag}
-                </span>
-              </div>
-
-              <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <h2 className="serif" style={{ fontSize: '1.4rem', lineHeight: '1.4', marginBottom: '1rem', color: 'var(--dark-brown)' }}>
-                  {post.title}
-                </h2>
-                <p style={{
-                  color: 'var(--warm-grey)',
-                  lineHeight: '1.6',
-                  fontSize: '0.95rem',
-                  flexGrow: 1,
-                  display: '-webkit-box',
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  margin: 0
-                }}>
-                  {highlightMula(post.excerpt)}
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid #eee' }}>
-                  <span style={{ color: '#aaa', fontSize: '0.85rem' }}>{post.date}</span>
-                  <span style={{ color: 'var(--accent-beige)', fontSize: '0.9rem', fontWeight: 'bold' }}>자세히 보기 &rarr;</span>
+                <div style={{ height: '250px', overflow: 'hidden', position: 'relative' }}>
+                  <img
+                    src={post.mainImage}
+                    alt={post.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                    className="news-image-hover"
+                  />
+                  <span style={{
+                    position: 'absolute',
+                    top: '15px',
+                    left: '15px',
+                    padding: '6px 14px',
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    color: 'var(--dark-brown)',
+                    fontWeight: 'bold',
+                    borderRadius: '20px',
+                    fontSize: '0.8rem',
+                    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+                  }}>
+                    {post.tag}
+                  </span>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
 
-        {/* 페이징 */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem', gap: '10px' }}>
-          <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--dark-brown)', color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>1</button>
-          <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #ddd', backgroundColor: 'transparent', color: '#666', cursor: 'pointer' }}>2</button>
+                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  <h2 className="serif" style={{ fontSize: '1.3rem', lineHeight: '1.45', marginBottom: '1rem', color: 'var(--dark-brown)', wordBreak: 'keep-all' }}>
+                    {post.title}
+                  </h2>
+                  <p style={{
+                    color: 'var(--warm-grey)',
+                    lineHeight: '1.6',
+                    fontSize: '0.95rem',
+                    flexGrow: 1,
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    margin: 0,
+                  }}>
+                    {highlightMula(post.excerpt)}
+                  </p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid #eee' }}>
+                    <span style={{ color: '#aaa', fontSize: '0.85rem' }}>{post.date}</span>
+                    <span style={{ color: 'var(--accent-beige)', fontSize: '0.9rem', fontWeight: 'bold' }}>자세히 보기 →</span>
+                  </div>
+                </div>
+              </article>
+            </Link>
+          ))}
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{ __html: `
         .news-card-hover:hover {
           transform: translateY(-5px);
           box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
         }
         @media (max-width: 768px) {
-          .news-page-grid {
-            grid-template-columns: 1fr !important;
-          }
+          .news-page-grid { grid-template-columns: 1fr !important; }
         }
-      `}} />
+      ` }} />
     </div>
   );
 }

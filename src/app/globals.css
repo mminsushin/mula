@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css');
+
 :root {
   --pale-ivory: #FDFCF0;
   --soft-ivory: #F9F7F2;
@@ -7,7 +9,7 @@
   --accent-beige: #C8B9A6;
   --soft-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
   line-height: 1.6;
   font-weight: 400;
   color: var(--dark-brown);
@@ -27,10 +29,55 @@
 
 body {
   overflow-x: hidden;
+  font-weight: 400; /* Regular — 본문 */
 }
 
-h1, h2, h3, .serif {
-  font-family: 'Playfair Display', serif;
+/* ===== 타이포그래피 굵기 체계 =====
+   h1  Hero 제목         : 800 ExtraBold
+   h2  섹션 제목         : 700 Bold
+   h3  소제목/카드 제목  : 600 SemiBold
+   p   본문 단락         : 400 Regular
+   small/caption         : 300 Light
+   nav/label/badge       : 500 Medium
+   button/strong/em      : 600 SemiBold
+======================================= */
+h1 {
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
+  font-weight: 800;
+}
+
+h2 {
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
+  font-weight: 600;
+}
+
+h4, h5, h6 {
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
+  font-weight: 600;
+}
+
+/* .serif는 이전에 Playfair Display용이었으나
+   SUIT로 통일하면서 SemiBold(600)으로 처리 */
+.serif {
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
+  font-weight: 600;
+}
+
+/* 캡션·서브라벨: 300 Light */
+small,
+figcaption,
+.caption,
+.sub-label {
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 700;
 }
 
 a {
@@ -167,4 +214,119 @@ section {
   font-size: 0.95em;
   margin: 0 3px;
   vertical-align: middle;
+}
+
+/* ===== GEO DEBUG BADGE ===== */
+.geo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  vertical-align: middle;
+  cursor: default;
+  margin-left: 8px;
+}
+.geo-badge-label {
+  display: inline-flex;
+  align-items: center;
+  background-color: #059669;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  user-select: none;
+}
+.geo-badge-schema {
+  font-size: 0.65rem;
+  color: #059669;
+  background-color: #d1fae5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.geo-badge-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111;
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  max-width: 280px;
+  white-space: normal;
+  z-index: 9998;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  pointer-events: none;
+  word-break: keep-all;
+}
+.geo-badge:hover .geo-badge-tooltip {
+  display: block;
+}
+
+/* GEO Readiness Footer strip */
+.geo-readiness-strip {
+  background-color: #0f1f0f;
+  color: rgba(255,255,255,0.7);
+  padding: 14px 5%;
+  font-size: 0.78rem;
+  border-top: 1px solid #1a3a1a;
+}
+.geo-readiness-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.geo-readiness-label {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #4ade80;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.geo-readiness-checks {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.geo-readiness-check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.geo-readiness-check-ok { color: #4ade80; font-weight: bold; }
+.geo-readiness-schemas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.geo-readiness-schema-chip {
+  background-color: rgba(74, 222, 128, 0.12);
+  color: #86efac;
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.geo-readiness-link {
+  color: #4ade80;
+  text-decoration: underline;
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+@media (max-width: 768px) {
+  .geo-readiness-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
 }
